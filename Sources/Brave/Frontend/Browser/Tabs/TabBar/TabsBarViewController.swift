@@ -414,7 +414,7 @@ extension TabsBarViewController: UICollectionViewDataSource {
     updateData()
 
     guard let selectedTab = tabList[destinationIndexPath.row] else { return }
-//    manager.selectTab(selectedTab)
+    // manager.selectTab(selectedTab)
   }
 }
 
