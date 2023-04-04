@@ -414,6 +414,19 @@ extension TabsBarViewController: UICollectionViewDataSource {
     updateData()
 
     guard let selectedTab = tabList[destinationIndexPath.row] else { return }
+<<<<<<< HEAD
+=======
+    
+    // Deselects all tabBarCells before selecting the one that was moved
+    for i in 0...tabs.count - 1 where i != destinationIndexPath.row {
+      if let cell = collectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? TabBarCell {
+        cell.closeButton.isHidden = true
+        cell.deselectedOverlayView.isHidden = false
+        cell.isSelected = false
+        cell.configure()
+      }
+    }
+>>>>>>> cdf92381a (fix ##7034 multible tabs activating)
     manager.selectTab(selectedTab)
   }
 }
