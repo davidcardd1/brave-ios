@@ -415,12 +415,14 @@ extension TabsBarViewController: UICollectionViewDataSource {
 
     guard let selectedTab = tabList[destinationIndexPath.row] else { return }
     
-    // Deselects all tabBarCells before selecting a new one
-    for i in 0...tabs.count - 1 {
-        if let cell = collectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? TabBarCell {
-          cell.isSelected = false
-          cell.configure()
-        }
+    // Deselects all tabBarCells before selecting the one that was moved
+    for i in 0...tabs.count - 1 where i != destinationIndexPath.row {
+      if let cell = collectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? TabBarCell {
+        cell.closeButton.isHidden = true
+        cell.deselectedOverlayView.isHidden = false
+        cell.isSelected = false
+        cell.configure()
+      }
     }
     manager.selectTab(selectedTab)
   }
