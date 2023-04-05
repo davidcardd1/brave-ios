@@ -415,7 +415,10 @@ extension TabsBarViewController: UICollectionViewDataSource {
 
     guard let selectedTab = tabList[destinationIndexPath.row] else { return }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> cdf92381a174aac36e9e7d8e0eb2b60197714123
     
     // Deselects all tabBarCells before selecting the one that was moved
     for i in 0...tabs.count - 1 where i != destinationIndexPath.row {
@@ -426,7 +429,10 @@ extension TabsBarViewController: UICollectionViewDataSource {
         cell.configure()
       }
     }
+<<<<<<< HEAD
 >>>>>>> cdf92381a (fix ##7034 multible tabs activating)
+=======
+>>>>>>> cdf92381a174aac36e9e7d8e0eb2b60197714123
     manager.selectTab(selectedTab)
   }
 }
